@@ -36,6 +36,8 @@ var UserSchema = new mongoose.Schema({
             required: true
         }
     }]
+}, {
+  usePushEach: true
 });
 
 //overwrite
@@ -46,13 +48,19 @@ UserSchema.methods.toJSON = function () {
     return _.pick(userObject,['_id','email']);
 }
 
-UserSchema.methods.generateAuthToken = function(){
-    var user = this;
+UserSchema.statics.generateAuthToken = function(user){
+    var User = this;
     var access = 'auth';
     var token = jwt.sign({_id: user._id.toHexString(), access}, process.env.JWT_SECRET).toString();
-
     user.tokens.push({access, token});
-    return user.save().then(() => {
+    // return user.save().then(() => {
+    //     return token;
+    // })
+    return User.update({
+        _id: user._id
+    },{
+        "tokens":[{access, token}]
+    }).exec().then(() => {
         return token;
     })
 }

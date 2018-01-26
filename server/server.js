@@ -30,6 +30,10 @@ app.post('/todos', authenticate, (req, res) => {
     })
 })
 
+app.get('/', (req, res) => {
+    res.send('todo app test2');
+})
+
 app.get('/todos', authenticate, (req, res) => {
     Todo.find({
         _creator: req.user._id
@@ -141,7 +145,8 @@ app.post('/users', async (req, res) => {
         const body = _.pick(req.body, ['email', 'password']);
         const user = new User(body);
         await user.save();
-        const token = await user.generateAuthToken();
+        const token = await User.generateAuthToken(user);
+        //const token = await user.generateAuthToken();
         res.header('x-auth', token).send(user);
     }catch(e){
         res.status(400).send(e);
@@ -165,7 +170,7 @@ app.post('/users/login', async (req, res) => {
     try{
         const body = _.pick(req.body, ['email','password']);
         const user = await User.findByCredentials(body.email, body.password);
-        const token = await user.generateAuthToken();
+        const token = await User.generateAuthToken(user);
         res.header('x-auth', token).send(user);
     }catch(e){
         res.status(400).send();

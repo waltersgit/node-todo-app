@@ -1,0 +1,29 @@
+version: "2"
+
+services:
+  app:
+    container_name: app
+    restart: always
+    build: .
+    ports:
+      - "3000:3000"
+    links:
+      - mongo
+    networks:
+      - backend-bridge
+    volumes:
+      - ./:/usr/app/src
+  mongo:
+    container_name: mongo
+    image: bitnami/mongodb
+    volumes:
+      - ./data:/data
+    ports:
+      - "27017:27017"
+    environment:
+      - MONGODB_ROOT_PASSWORD=root
+    networks:
+      - backend-bridge  
+
+networks:
+  backend-bridge:
