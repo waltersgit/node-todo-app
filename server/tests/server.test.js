@@ -14,7 +14,6 @@ beforeEach(populateTodos);
 after(function(){
     mongoose.connection.close()
 })
-
 describe('POST /todos', () => {
     it('should create a new todo', (done) => {
         var text = 'Test todo text';
@@ -347,4 +346,5 @@ describe('DELETE /users/me/toke', () => {
                 }).catch((e)=>done(e))
             })
     })
+    
 })
