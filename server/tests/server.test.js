@@ -346,5 +346,4 @@ describe('DELETE /users/me/toke', () => {
                 }).catch((e)=>done(e))
             })
     })
-    
 })
