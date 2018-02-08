@@ -1,5 +1,0 @@
-<testsuite name="Mocha Tests" tests="0" failures="1" errors="1" skipped="-1" timestamp="Thu, 08 Feb 2018 07:53:42 GMT" time="0.05">
-<testcase classname="" name="&quot;before each&quot; hook: populateUsers" time="0"><failure message="getaddrinfo ENOTFOUND mongo mongo:27017"><![CDATA[Error: getaddrinfo ENOTFOUND mongo mongo:27017
-    at errnoException (dns.js:50:10)
-    at GetAddrInfoReqWrap.onlookup [as oncomplete] (dns.js:92:26)]]></failure></testcase>
-</testsuite>
