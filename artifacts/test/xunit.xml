@@ -1,23 +1,5 @@
-<testsuite name="Mocha Tests" tests="21" failures="0" errors="0" skipped="0" timestamp="Thu, 08 Feb 2018 07:37:25 GMT" time="9.681">
-<testcase classname="POST /todos" name="should create a new todo" time="0.044"/>
-<testcase classname="POST /todos" name="should not create todo with invalid body data" time="0.007"/>
-<testcase classname="GET /todos" name="should get all todos" time="0.006"/>
-<testcase classname="Get /todos/:id" name="should return todo doc" time="0.005"/>
-<testcase classname="Get /todos/:id" name="should not return todo doc by other user" time="0.003"/>
-<testcase classname="Get /todos/:id" name="should return 404 if todo not found" time="0.004"/>
-<testcase classname="Get /todos/:id" name="should return 404 for none-object ids" time="0.003"/>
-<testcase classname="DeLETE /todos/:id" name="should remove a todo" time="0.006"/>
-<testcase classname="DeLETE /todos/:id" name="should not remove a todo" time="0.005"/>
-<testcase classname="DeLETE /todos/:id" name="should 404 if todo not found" time="0.003"/>
-<testcase classname="DeLETE /todos/:id" name="should return 404 if object id is invalid" time="0.003"/>
-<testcase classname="PATCH /todos/:id" name="should update the todo" time="0.008"/>
-<testcase classname="PATCH /todos/:id" name="should not update the todo created by other user" time="0.003"/>
-<testcase classname="PATCH /todos/:id" name="should clear completedAt when todo is not completed" time="0.004"/>
-<testcase classname="GET /users/me" name="should return user if authenticate" time="0.003"/>
-<testcase classname="GET /users/me" name="should return 401 if not authenticated" time="0.004"/>
-<testcase classname="POST /users" name="should create a user" time="0.209"/>
-<testcase classname="POST /users" name="should return validation errors if request invalid" time="0.002"/>
-<testcase classname="POST /users" name="should not create user if email in use" time="0.209"/>
-<testcase classname="POST /user/login" name="should reject invalid login" time="0.213"/>
-<testcase classname="DELETE /users/me/toke" name="should remove auth token on logout" time="0.005"/>
+<testsuite name="Mocha Tests" tests="0" failures="1" errors="1" skipped="-1" timestamp="Thu, 08 Feb 2018 07:53:42 GMT" time="0.05">
+<testcase classname="" name="&quot;before each&quot; hook: populateUsers" time="0"><failure message="getaddrinfo ENOTFOUND mongo mongo:27017"><![CDATA[Error: getaddrinfo ENOTFOUND mongo mongo:27017
+    at errnoException (dns.js:50:10)
+    at GetAddrInfoReqWrap.onlookup [as oncomplete] (dns.js:92:26)]]></failure></testcase>
 </testsuite>
